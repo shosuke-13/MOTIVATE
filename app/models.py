@@ -59,7 +59,7 @@ class Feedback(db.Model):
     id = db.column(db.Integer, primary_Key = True)
     user_id = db.column(db.Integer,db.ForeignKey('user.id'), nullable=False)
     post_id = db.column(db.Integer,db.ForeignKey('post.id'), nullable=False)
-    feedback_text = db.column(db.Integer)
+    feedback_text = db.column(db.text)
     date = db.column(db.datetime)
 
 
