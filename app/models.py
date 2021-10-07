@@ -20,7 +20,7 @@ class Theme(db.Model):
     __tablename__ = 'theme'
     id = db.column(db.Integer, primary_key=True)
     user_id = db.column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    theme_name = db.column(db.Text)
+    theme_name = db.column(db.Text, nullable=False)
 
     motivation = db.relationship('Motivation', backref='theme')
     portforio = db.relationship('Portforio',backref='theme')
@@ -32,15 +32,15 @@ class Motivation(db.Model):
     id = db.column(db.Integer, primary_key=True)
     user_id = db.column(db.Integer,db.ForeignKey('user.id'), nullable=False)
     theme_id = db.column(db.Integer,db.ForeignKey('theme.id'), nullable=False)
-    percentage = db.column(db.Integer)
+    percentage = db.column(db.Integer, nullable=False)
 
 class Portforio(db.Model):
     __tablename__ = 'portforio'
     id = db.column(db.Integer, primary_Key=True)
     user_id = db.column(db.Integer,db.ForeignKey('user.id'), nullable=False)
     theme_id = db.column(db.Integer,db.ForeignKey('theme.id'), nullable=False)
-    portforio_title = db.column(db.text)
-    portforio_text = db.columun(db.text)
+    portforio_title = db.column(db.text, nullable=False)
+    portforio_text = db.columun(db.text, nullable=False)
     date = db.column(db.datetime)
 
 class Post(db.Model):
@@ -48,8 +48,8 @@ class Post(db.Model):
     id = db.column(db.Integer, primary_Key = True)
     user_id = db.column(db.Integer,db.ForeignKey('user.id'), nullable=False)
     theme_id = db.column(db.Integer,db.ForeignKey('theme.id'), nullable=False)
-    post_title = db.column(db.text)
-    post_text = db.column(db.text)
+    post_title = db.column(db.text, nullable=False)
+    post_text = db.column(db.text, nullable=False)
     date = db.column(db.datetime)
 
     feedback = db.relationship('Feedback', backref='post', lazy=True)
@@ -59,7 +59,7 @@ class Feedback(db.Model):
     id = db.column(db.Integer, primary_Key = True)
     user_id = db.column(db.Integer,db.ForeignKey('user.id'), nullable=False)
     post_id = db.column(db.Integer,db.ForeignKey('post.id'), nullable=False)
-    feedback_text = db.column(db.text)
+    feedback_text = db.column(db.text, nullable=False)
     date = db.column(db.datetime)
 
 
