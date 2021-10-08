@@ -1,4 +1,3 @@
-from datetime import date
 from sqlalchemy.orm import backref
 from app import db
 
@@ -33,6 +32,7 @@ class Motivation(db.Model):
     user_id = db.column(db.Integer,db.ForeignKey('user.id'), nullable=False)
     theme_id = db.column(db.Integer,db.ForeignKey('theme.id'), nullable=False)
     percentage = db.column(db.Integer, nullable=False)
+    date = db.column(db.datetime, nullable=False)
 
 class Portforio(db.Model):
     __tablename__ = 'portforio'
