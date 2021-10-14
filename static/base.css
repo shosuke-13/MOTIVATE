@@ -1,0 +1,126 @@
+body {
+    background: #f2ecf5;
+}
+
+/* header */
+header {
+    background: #fafafa;
+    height: 50px;
+    text-align: center;
+}
+
+header a {
+    color: #666;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.7rem;
+    position: relative;
+    top: 10px;
+    
+}
+
+/* nav */
+nav {
+    background: #f2ecf5;
+    position: relative;
+    top: 0;
+}
+
+/* grobal navigaton */
+.gnavi {
+    height: 70px;
+    background: #fafafa;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.gnavi_inner {
+    width: 980px;
+    height: 100%;
+    margin: auto;
+}
+
+.gnavi ul {
+    height: 100%;
+    display: flex;
+    list-style: none;
+    margin: 0 -20px;
+}
+
+.gnavi li {
+    flex: 1 1;
+    position: relative;
+    display: flex;
+}
+
+.gnavi li::after {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 20px;
+    background: #b8b9dc;
+    position: absolute;
+    right: -1px;
+    top: calc((100% - 20px) / 2);
+}
+
+.gnavi li:last-child::after {
+    content: none;
+}
+
+.gnavi a {
+    display: flex;
+    flex: 1 1;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.gnavi a:hover {
+    color: #c685e4;
+    position: relative;
+}
+
+.gnavi a:hover span::after {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 4px;
+    width: 100%;
+    bottom: 0;
+}
+
+.gnavi span {
+    display: flex;
+    align-items: center;
+    word-break: keep-all;
+}
+
+.gnavi_inner ul li a {
+    color: #666;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* main */
+main {
+    min-height: 100vh;
+    display: flex;
+    margin-top: 10px;
+}
+
+/* contents */
+.content {
+    flex: 1;
+    background: #eee;
+    text-align: center;
+    margin-left: 10px;
+}
+
+/* local navigation */
+.lnavi {
+    width: 300px;
+    text-align: center;
+    background: #666;
+    color: #fff;
+}

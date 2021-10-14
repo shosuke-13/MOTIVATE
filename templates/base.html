@@ -11,3 +11,37 @@
     </div>
 </div>
 {% endblock %}
+
+
+
+<!DOCTYPE html>
+
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='base.css') }}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400">
+        <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=fontawesome">
+        <title>メニュー</title>
+    </head>
+
+    <body>
+        {% block body %}
+        <header><a href="home.html">もちもちのき</a></header>
+
+        <nav class="gnavi">
+            <div class="gnavi_inner">
+                <ul>
+                    <li><a href="home.html"><span>ホーム</span></a></li>
+                    <li><a href="{{ url_for('account_button') }}"><span>アカウント</span></a></li>
+                    <li><a href="{{ url_for('motivation_button') }}"><span>モチベーション</span></a></li>
+                    <li><a href="{{ url_for('portfolio_button') }}"><span>ポートフォリオ</span></a></li>
+                    <li><a href="{{ url_for('post_button') }}"><span>投稿</span></a></li>
+                    <li><a href="{{ url_for('logout_button') }}"><span>ログアウト</span></a></li>
+                </ul>
+            </div>
+        </nav>
+
+        {% endblock %}
+    </body>
+</html>
