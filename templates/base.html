@@ -1,19 +1,3 @@
-{% extends "boostrap/base.html" %}
-
-{% extends "bootstrap/base.html" %}
-
-{% block title %}{% endblock %}
-
-{% block content %}
-<div class="container">
-    <div class="page-header">
-   
-    </div>
-</div>
-{% endblock %}
-
-
-
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -27,12 +11,12 @@
 
     <body>
         {% block body %}
-        <header><a href="home.html">もちもちのき</a></header>
+        <header><a href="{{ url_for('home_button') }}">もちもちのき</a></header>
 
         <nav class="gnavi">
             <div class="gnavi_inner">
                 <ul>
-                    <li><a href="home.html"><span>ホーム</span></a></li>
+                    <li><a href="{{ url_for('home_button') }}"><span>ホーム</span></a></li>
                     <li><a href="{{ url_for('account_button') }}"><span>アカウント</span></a></li>
                     <li><a href="{{ url_for('motivation_button') }}"><span>モチベーション</span></a></li>
                     <li><a href="{{ url_for('portfolio_button') }}"><span>ポートフォリオ</span></a></li>
