@@ -3,21 +3,21 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="base.css">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='static/base.css') }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400">
         <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=fontawesome">
-        <title>投稿</title>
+        <title>ホーム</title>
     </head>
 
     <body>
         {% extends "base.html" %}
-        {% block main %}
+        {% block body %}
         {{ super () }}
 
         <main>
-                
+
         </main>
-        
+
         {% endblock %}
     </body>
 </html>
