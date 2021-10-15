@@ -19,19 +19,18 @@ class Theme(db.Model):
     __tablename__ = 'theme'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    theme_name = db.Column(db.String(100), nullable=False)
+    theme_name = db.Column(db.String(100))
 
     motivation = db.relationship('Motivation', backref='theme')
     portforio = db.relationship('Portforio',backref='theme')
     post = db.relationship('Post', backref='theme')
-
 
 class Motivation(db.Model):
     __tablename__ = 'motivation'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer,db.ForeignKey('user.id'), nullable=False)
     theme_id = db.Column(db.Integer,db.ForeignKey('theme.id'), nullable=False)
-    percentage = db.Column(db.Integer, nullable=False)
+    percentage = db.Column(db.Integer)
 
 class Portforio(db.Model):
     __tablename__ = 'portforio'
