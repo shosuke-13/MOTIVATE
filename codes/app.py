@@ -1,6 +1,6 @@
 from flask import Flask,render_template,redirect,request,url_for,session
 from database import db
-from views import User,Theme,Motivation,Portforio,Post,Feedback
+from views import User,Motivation,Portforio,Post,Feedback
 from datetime import timedelta
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
@@ -11,7 +11,9 @@ db.init_app(app)
 app.permanent_session_lifetime = timedelta(minutes=50)
 
 with app.app_context():
+    db.drop_all()
     db.create_all()
+
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -39,12 +41,34 @@ def account_button():
 def motivation():
     return render_template('motivation.html')
 
-@app.route('/motivation_button', methods=['GET', 'POST'])
-def motivation_button():
+@app.route('/motivation', methods=['GET', 'POST'])
+def motivation_form():
     if request.method == 'POST':
-        return redirect(url_for('motivation'))
+      #フォームの作成
+      motivation = request.form.get('motivation')
+      theme = request.form.get('theme')
+    
 
-    return render_template('motivation.html')
+      #モデルクラスのインスタンスを作成
+      motivation_data = Motivation(percentage = motivation,theme_name=theme)
+      #theme_data = Theme(theme_name = theme)
+      
+      #データベースに保存する
+      db.session.add(motivation_data)
+      db.session.commit()
+      db.session.close()
+
+      #ユーザー登録を行ってからデータベースが登録するかを確認する
+
+      return redirect(url_for('motivation'))
+
+    else:
+      #データベースからデータを取り出す
+     
+      motivations = db.session.query(Motivation).all()
+      #themes = db.session.query(Theme.theme_name).all()
+      
+      return render_template('motivation.html', motivations = motivations)
 
 
 @app.route('/')
@@ -124,12 +148,12 @@ def login():
   if request.method == "POST":
     e_mail = request.form.get("email")
     password = request.form.get("password")
-    users = db.session.query(User).filter(User.e_mail == e_mail).all()
-    if len(users) != 1:
-      return render_template("login.html")
-    
+    user = db.session.query(User).filter(User.e_mail == e_mail).all()[0]
+    user_id = user.id
+    user_password = user.password
+
     session.permanent = True
-    
+    session["user_id"] = user_id
     return render_template("home.html")
 
 @app.route("/logout",methods = ["GET","POST"])
@@ -142,5 +166,6 @@ def logout():
 
 if __name__=="__main__":
   app.run(debug=True)
+  
 
 
