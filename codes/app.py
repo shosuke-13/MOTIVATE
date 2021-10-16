@@ -11,7 +11,9 @@ db.init_app(app)
 app.permanent_session_lifetime = timedelta(minutes=50)
 
 with app.app_context():
+    #db.drop_all()
     db.create_all()
+
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -39,12 +41,39 @@ def account_button():
 def motivation():
     return render_template('motivation.html')
 
-@app.route('/motivation_button', methods=['GET', 'POST'])
-def motivation_button():
+@app.route('/motivation', methods=['GET', 'POST'])
+def motivation_form():
     if request.method == 'POST':
-        return redirect(url_for('motivation'))
+      #フォームの作成
+      motivation = request.form.get('motivation')
+      theme = request.form.get('theme')
 
-    return render_template('motivation.html')
+      #モデルクラスのインスタンスを作成
+      motivation_data = Motivation(percentage = motivation)
+      theme_data = Theme(theme_name = theme)
+      
+      #データベースに保存する
+      db.session.add(motivation_data)
+      db.session.add(theme_data)
+      db.session.commit()
+      db.session.close()
+
+      #ユーザー登録を行ってからデータベースが登録するかを確認する
+
+      return redirect(url_for('motivation'))
+
+    else:
+      #データベースからデータを取り出す
+     
+      motivations = db.session.query(Motivation.percentage).all()
+      themes = db.session.query(Theme.theme_name).all()
+
+      """"ここでデータベースから取り出したデータをリスト形式で変数に格納し
+      　　<script>タグ内部で
+          let motivation_data = {{ motivation | tojson }};
+          としてjsで取り扱えるように再定義を行う"""
+      
+      return render_template('motivation.html', motivations = motivations, themes = themes)
 
 
 @app.route('/')
@@ -142,5 +171,6 @@ def logout():
 
 if __name__=="__main__":
   app.run(debug=True)
+  
 
 
