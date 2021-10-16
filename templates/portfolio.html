@@ -3,9 +3,18 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="base.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='base.css') }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400">
         <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=fontawesome">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename='bootstrap_css/bootstrap.min.css')}}">
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="{{url_for('static', filename='bootstrap_js/bootstrap.min.js')}}"></script>
+
         <title>ポートフォリオ</title>
     </head>
 
@@ -14,8 +23,72 @@
         {% block body %}
         {{ super () }}
 
-        <main>
-                
+        <main class="main">
+            <div class="lnavi">
+                <p>新規ポートフォリオ</p>
+            </div>
+
+            <div class="flexContent">
+                <div class="card flexItem">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
+                        <title>Placeholder</title>
+                        <rect fill="#868e96" width="100%" height="100%"/>
+                        <text fill="#dee2e6" dy=".3em" x="50%" y="50%">画像</text>
+                    </svg>
+    
+                    <div class="card-body">
+                        <p class="card-text">これが私のポートフォリオです。webアプリケーションを作ってみました。</p>
+                    </div>
+                </div>
+
+                <div class="card flexItem">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
+                        <title>Placeholder</title>
+                        <rect fill="#868e96" width="100%" height="100%"/>
+                        <text fill="#dee2e6" dy=".3em" x="50%" y="50%">画像</text>
+                    </svg>
+    
+                    <div class="card-body">
+                        <p class="card-text">これが私のポートフォリオです。webアプリケーションを作ってみました。</p>
+                    </div>
+                </div>
+
+                <div class="card flexItem">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
+                        <title>Placeholder</title>
+                        <rect fill="#868e96" width="100%" height="100%"/>
+                        <text fill="#dee2e6" dy=".3em" x="50%" y="50%">画像</text>
+                    </svg>
+    
+                    <div class="card-body">
+                        <p class="card-text">これが私のポートフォリオです。webアプリケーションを作ってみました。</p>
+                    </div>
+                </div>
+
+                <div class="card flexItem">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
+                        <title>Placeholder</title>
+                        <rect fill="#868e96" width="100%" height="100%"/>
+                        <text fill="#dee2e6" dy=".3em" x="50%" y="50%">画像</text>
+                    </svg>
+    
+                    <div class="card-body">
+                        <p class="card-text">これが私のポートフォリオです。webアプリケーションを作ってみました。</p>
+                    </div>
+                </div>
+
+                <div class="card flexItem">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
+                        <title>Placeholder</title>
+                        <rect fill="#868e96" width="100%" height="100%"/>
+                        <text fill="#dee2e6" dy=".3em" x="50%" y="50%">画像</text>
+                    </svg>
+    
+                    <div class="card-body">
+                        <p class="card-text">これが私のポートフォリオです。webアプリケーションを作ってみました。</p>
+                    </div>
+                </div>
+            </div>
         </main>
         
         {% endblock %}

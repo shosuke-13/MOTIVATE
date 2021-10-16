@@ -1,10 +1,12 @@
 body {
     background: #f2ecf5;
+    display: flex;
+    flex-direction: column;
 }
 
 /* header */
 header {
-    background: #fafafa;
+    background: #faf5ff;
     height: 50px;
     text-align: center;
 }
@@ -30,7 +32,7 @@ nav {
 /* grobal navigaton */
 .gnavi {
     height: 70px;
-    background: #fafafa;
+    background: #faf5ff;
     font-size: 1.2rem;
     font-weight: bold;
 }
@@ -103,7 +105,7 @@ nav {
 }
 
 /* main */
-main {
+.main {
     min-height: 100vh;
     display: flex;
     margin-top: 10px;
@@ -117,10 +119,51 @@ main {
     margin-left: 10px;
 }
 
+.flexContent {
+    flex: 1;
+    list-style: none;
+	box-sizing: border-box;
+    background: #eee;
+    display: flex;
+	flex-wrap: wrap;
+    margin: 10px;
+	padding: 10px;
+}
+
+.home_post {
+    flex: 1;
+    background: #fff4f9;
+    text-align: center;
+    margin-left: 10px;
+    align-content: flex-start;
+}
+
+.home_portfolio {
+    flex: 1;
+    background: #f5fffa;
+    text-align: center;
+    margin-left: 10px;
+    align-content: flex-start;
+}
+
 /* local navigation */
 .lnavi {
-    width: 300px;
+    width: 400px;
     text-align: center;
-    background: #666;
-    color: #fff;
+    background: #fffaf5;
+    color: #666;
+    margin: 10px;
+}
+
+/* flex item*/
+.flexItem {
+    width: calc(100% / 3 - 20px);
+    height: 25rem;
+    margin: calc(20px / 2);
+}
+
+.homeFlexItem {
+    width: calc(100% / 3 - 10px);
+    height: 20rem;
+    margin: calc(10px / 2);
 }
