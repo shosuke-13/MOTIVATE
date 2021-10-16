@@ -20,15 +20,18 @@
             <div class="lnavi">
 
                 <h1>form</h1>
+                <h3>______________________</h3>
                 <form action="/motivation" method = "POST">
                   <h2>motivation</h2><input type="number" name = "motivation" placeholder= "motivation: %">
                   <br><h2>theme</h2><input type="text" name = "theme" placeholder = "Your theme name"></br>
                   <br><input type="submit" name = "submit" placeholder = "submit"></br>
                 </form>
+
+                <h3>______________________</h3>
+                
                 {% for motivation in motivations%}
-                {{motivation.theme_name}} : 
-                {{motivation.percentage}}
-                <br></br>
+                <h5>{{motivation.theme_name}} : 
+                {{motivation.percentage}}%</h5>
                 {% endfor %}
 
               
@@ -41,12 +44,12 @@
                 <canvas id="myChart"></canvas>
                 <script>
                  
-                  const labels = [];
+                  const labels = ['test','test80','test-40'];
                   const data = {
                     labels: labels,
                     datasets: [{
                       label: 'Motivation',
-                      data: [],
+                      data: [1,80,-40],
                       borderWidth: 1
                     }]
                   };

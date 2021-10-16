@@ -1,6 +1,6 @@
 from flask import Flask,render_template,redirect,request,url_for,session
 from database import db
-from views import User,Theme,Motivation,Portforio,Post,Feedback
+from views import User,Motivation,Portforio,Post,Feedback
 from datetime import timedelta
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
@@ -11,7 +11,7 @@ db.init_app(app)
 app.permanent_session_lifetime = timedelta(minutes=50)
 
 with app.app_context():
-    #db.drop_all()
+    db.drop_all()
     db.create_all()
 
 @app.route('/')
