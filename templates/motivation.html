@@ -3,6 +3,7 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='base.css') }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400">
         <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=fontawesome">
@@ -14,9 +15,14 @@
         {% block body %}
         {{ super () }}
 
-        <main>
+        <main class="main">
             <div class="lnavi">
                 <p>ローカル</p>
+                <p>プログラミング</p>
+                <p>英語</p>
+                <p>・</p>
+                <p>・</p>
+                <p>・</p>
             </div>
 
             <div class="content">
