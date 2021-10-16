@@ -28,6 +28,7 @@ class Theme(db.Model):
 class Motivation(db.Model):
     __tablename__ = 'motivation'
     id = db.Column(db.Integer, primary_key=True)
+    theme_name = db.Column(db.String(100))
     #user_id = db.Column(db.Integer,db.ForeignKey('user.id'), nullable=False)
     #theme_id = db.Column(db.Integer,db.ForeignKey('theme.id'), nullable=False)
     percentage = db.Column(db.Integer)

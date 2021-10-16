@@ -47,14 +47,14 @@ def motivation_form():
       #フォームの作成
       motivation = request.form.get('motivation')
       theme = request.form.get('theme')
+    
 
       #モデルクラスのインスタンスを作成
-      motivation_data = Motivation(percentage = motivation)
-      theme_data = Theme(theme_name = theme)
+      motivation_data = Motivation(percentage = motivation,theme_name=theme)
+      #theme_data = Theme(theme_name = theme)
       
       #データベースに保存する
       db.session.add(motivation_data)
-      db.session.add(theme_data)
       db.session.commit()
       db.session.close()
 
@@ -65,15 +65,10 @@ def motivation_form():
     else:
       #データベースからデータを取り出す
      
-      motivations = db.session.query(Motivation.percentage).all()
-      themes = db.session.query(Theme.theme_name).all()
-
-      """"ここでデータベースから取り出したデータをリスト形式で変数に格納し
-      　　<script>タグ内部で
-          let motivation_data = {{ motivation | tojson }};
-          としてjsで取り扱えるように再定義を行う"""
+      motivations = db.session.query(Motivation).all()
+      #themes = db.session.query(Theme.theme_name).all()
       
-      return render_template('motivation.html', motivations = motivations, themes = themes)
+      return render_template('motivation.html', motivations = motivations)
 
 
 @app.route('/')
@@ -153,12 +148,12 @@ def login():
   if request.method == "POST":
     e_mail = request.form.get("email")
     password = request.form.get("password")
-    users = db.session.query(User).filter(User.e_mail == e_mail).all()
-    if len(users) != 1:
-      return render_template("login.html")
-    
+    user = db.session.query(User).filter(User.e_mail == e_mail).all()[0]
+    user_id = user.id
+    user_password = user.password
+
     session.permanent = True
-    
+    session["user_id"] = user_id
     return render_template("home.html")
 
 @app.route("/logout",methods = ["GET","POST"])

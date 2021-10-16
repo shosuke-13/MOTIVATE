@@ -3,6 +3,7 @@
 <html lang="ja">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='base.css') }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400">
         <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=fontawesome">
@@ -15,23 +16,22 @@
         {% block body %}
         {{ super () }}
 
-        <main>
+        <main class="main">
             <div class="lnavi">
+
                 <h1>form</h1>
                 <form action="/motivation" method = "POST">
-                  <h3>motivation</h3><input type="number" name = "motivation" placeholder= "motivation: %">
-                  <br><h3>theme</h3><input type="text" name = "theme" placeholder = "Your theme name"></br>
+                  <h2>motivation</h2><input type="number" name = "motivation" placeholder= "motivation: %">
+                  <br><h2>theme</h2><input type="text" name = "theme" placeholder = "Your theme name"></br>
                   <br><input type="submit" name = "submit" placeholder = "submit"></br>
                 </form>
-                <ul>
-                  {% for theme in themes %}
-                      <li>{{ theme }}</li>
-                  {% endfor %}
-                  {% for motivation in motivations %}
-                      <li>{{ motivation }}</li>
-                  {% endfor %}
+                {% for motivation in motivations%}
+                {{motivation.theme_name}} : 
+                {{motivation.percentage}}
+                <br></br>
+                {% endfor %}
 
-                </ul>
+              
             </div>
 
             <div class="content">
@@ -40,13 +40,13 @@
                
                 <canvas id="myChart"></canvas>
                 <script>
-                  
-                  const labels = [1,2,3];
+                 
+                  const labels = [];
                   const data = {
                     labels: labels,
                     datasets: [{
                       label: 'Motivation',
-                      data: [50,80,-20],
+                      data: [],
                       borderWidth: 1
                     }]
                   };
