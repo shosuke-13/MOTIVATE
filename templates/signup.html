@@ -7,14 +7,17 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='signup.css') }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400">
         <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=fontawesome">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+
         <title>アカウント登録</title>
     </head>
 
     <body>
-        <header></header>
+        <header class="header"><a href="{{ url_for('index_button') }}">Motivate.</a></header>
 
         <div class="form-wrapper">
-            <h1>アカウント登録</h1>
+            <h1>SignUp</h1>
 
             <form action="/register" method="POST">
                 <div class="form-item">
@@ -33,7 +36,7 @@
                 </div>
 
                 <div class="button-panel">
-                    <input type="submit" class="button" title="SignUp" value="登録"></input>
+                    <input type="submit" class="button" title="SignUp" value="SignUp"></input>
                 </div>
             </form>
 
@@ -41,5 +44,7 @@
                 <p><a href="{{ url_for('already_signup_button') }}">アカウント登録済みの方</a></p>
             </div>
         </div>
+
+        <footer class="header"></footer>
     </body>
 </html>
