@@ -42,7 +42,7 @@ def motivation():
     return render_template('motivation.html')
 
 @app.route('/motivation', methods=['GET', 'POST'])
-def motivation_form():
+def motivation_button():
     if request.method == 'POST':
       #フォームの作成
       motivation = request.form.get('motivation')
