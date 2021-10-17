@@ -7,13 +7,17 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400">
         <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=fontawesome">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+   
         <title>ログイン</title>
     </head>
 
     <body>
-        
+        <header class="header"><a href="{{ url_for('index_button') }}">Motivate.</a></header>
+
         <div class="form-wrapper">
-            <h1>ログイン</h1>
+            <h1>LogIn</h1>
             
             <form action="/login" method="POST">
                 <div class="form-item">
@@ -27,7 +31,7 @@
                 </div>
 
                 <div class="button-panel">
-                    <input type="submit" class="button" title="Login" value="ログイン"></input>
+                    <input type="submit" class="button" title="Login" value="LogIn"></input>
                 </div>
             </form>
 
@@ -35,5 +39,7 @@
                 <p><a href="{{ url_for('not_signup_button') }}">アカウント登録をしていない方</a></p>
             </div>
         </div>
+
+        <footer class="header"></footer>
     </body>
 </html>
