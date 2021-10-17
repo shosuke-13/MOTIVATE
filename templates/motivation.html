@@ -43,13 +43,18 @@
                
                 <canvas id="myChart"></canvas>
                 <script>
-                 
-                  const labels = ['test','test80','test-40'];
+                  const motivation_data = ['{% for motivation in motivations %}{{motivation.percentage}}{% endfor %}'];
+                  const theme_data = ['{% for motivation in motivations %}{{motivation.theme_name}}{% endfor %}'];
+          
+                  console.log(motivation_data);
+                  console.log(theme_data);
+
+                  const labels = theme_data;
                   const data = {
                     labels: labels,
                     datasets: [{
                       label: 'Motivation',
-                      data: [1,80,-40],
+                      data: motivation_data,
                       borderWidth: 1
                     }]
                   };
