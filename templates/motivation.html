@@ -7,6 +7,16 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='base.css') }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400">
         <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=fontawesome">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+        <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=fontawesome">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename='bootstrap_css/bootstrap.min.css')}}">
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="{{url_for('static', filename='bootstrap_js/bootstrap.min.js')}}"></script>
+
         <title>モチベーション</title>
     </head>
 
@@ -17,19 +27,18 @@
 
         <main class="main">
             <div class="lnavi">
-                <p>ローカル</p>
-                <p>プログラミング</p>
-                <p>英語</p>
-                <p>・</p>
-                <p>・</p>
-                <p>・</p>
+
             </div>
 
             <div class="content">
-                <p>コンテンツ</p>
+
             </div>
         </main>
 
+        {% endblock %}
+
+        {% block footer %}
+        {{ super () }}
         {% endblock %}
     </body>
 </html>
