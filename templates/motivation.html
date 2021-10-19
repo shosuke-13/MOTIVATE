@@ -27,17 +27,19 @@
         {{ super () }}
 
         <main class="main">
-            <div class="lnavi"></div>
-
-            <div class="content">
-                <h1>form</h1>
+            <div class="lnavi">
+              <h1>form</h1>
                 <h3>______________________</h3>
                 <form action="/motivation" method = "POST">
                   <h2>motivation</h2><input type="number" name = "motivation" placeholder= "motivation: %">
                   <br><h2>theme</h2><input type="text" name = "theme" placeholder = "Your theme name"></br>
                   <br><input type="submit" name = "submit" placeholder = "submit"></br>
                 </form>
+            </div>
 
+            <div class="content">
+                
+                <h1>Your Theme And Motivation(%)</h1>
                 <h3>______________________</h3>
                 
                 {% for motivation in motivations%}
@@ -49,20 +51,32 @@
             </div>
 
             <div class="content">
-                <h3>モチベーションをグラフで表示する</h3>
+                <h1>Display Your Motivation</h1>
                 
                
                 <canvas id="myChart"></canvas>
                 <script>
-                  const motivation_data = ['{% for motivation in motivations %}{{motivation.percentage}}{% endfor %}'];
-                  const theme_data = ['{% for motivation in motivations %}{{motivation.theme_name}}{% endfor %}'];
-          
+              
+                  var motivation_data = {{motivation_data|tojson}};
+                  motivation_data = JSON.parse(motivation_data);
                   console.log(motivation_data);
-                  console.log(theme_data);
+
+                  var theme_data = {{theme_data|tojson}};
+                  theme_data = JSON.parse(theme_data)
+
+
+                  const sum_motivation = motivation_data.reduce(
+                    function(sum,element)
+                    {return sum + element;},0);
+                  console.log(sum_motivation);
+                  
+                  //count theme_number you had
+                  const count_theme_data = theme_data.length;
+                  console.log(count_theme_data);
 
                   const labels = theme_data;
                   const data = {
-                    labels: labels,
+                    labels: theme_data,
                     datasets: [{
                       label: 'Motivation',
                       data: motivation_data,

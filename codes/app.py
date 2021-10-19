@@ -2,6 +2,7 @@ from flask import Flask,render_template,redirect,request,url_for,session
 from database import db
 from views import User,Motivation,Portforio,Post,Feedback
 from datetime import timedelta
+import json
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///motivation.db'
@@ -42,12 +43,11 @@ def motivation():
     return render_template('motivation.html')
 
 @app.route('/motivation', methods=['GET', 'POST'])
-def motivation_form():
+def motivation_button():
     if request.method == 'POST':
       #フォームの作成
       motivation = request.form.get('motivation')
       theme = request.form.get('theme')
-    
 
       #モデルクラスのインスタンスを作成
       motivation_data = Motivation(percentage = motivation,theme_name=theme)
@@ -58,17 +58,28 @@ def motivation_form():
       db.session.commit()
       db.session.close()
 
-      #ユーザー登録を行ってからデータベースが登録するかを確認する
-
       return redirect(url_for('motivation'))
 
     else:
       #データベースからデータを取り出す
-     
       motivations = db.session.query(Motivation).all()
-      #themes = db.session.query(Theme.theme_name).all()
+    
+      motivation_datas = db.session.query(Motivation.percentage).all()
+      list_data = []
+      for motivation_data in motivation_datas:
+        print(motivation_data)
+        list_data.append(motivation_data[0])
       
-      return render_template('motivation.html', motivations = motivations)
+      motivation_data = json.dumps(list(list_data))
+      
+      theme_dates = db.session.query(Motivation.theme_name).all()
+      list_data2 = []
+      for theme_data in theme_dates:
+        list_data2.append(theme_data[0])
+
+      theme_data = json.dumps(list(list_data2))      
+      
+      return render_template('motivation.html', motivations = motivations, motivation_data = motivation_data, theme_data = theme_data)
 
 
 @app.route('/')
