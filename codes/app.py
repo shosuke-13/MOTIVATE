@@ -1,8 +1,13 @@
 from flask import Flask,render_template,redirect,request,url_for,session
+from numpy.ma.core import multiply
 from database import db
 from views import User,Motivation,Portforio,Post,Feedback
 from datetime import timedelta
 import json
+from datetime import date,datetime
+from operator import mul
+import numpy as np
+from flask import jsonify
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///motivation.db'
@@ -48,9 +53,21 @@ def motivation_button():
       #フォームの作成
       motivation = request.form.get('motivation')
       theme = request.form.get('theme')
+      due = request.form.get("due")
+      valence = request.form.get("valence")
+      instrumentary = request.form.get("instrumentary")
+      expectancy = request.form.get("expectancy")
 
       #モデルクラスのインスタンスを作成
-      motivation_data = Motivation(percentage = motivation,theme_name=theme)
+      due = datetime.strptime(due,"%Y-%m-%d")
+      motivation_data = Motivation(
+          percentage=motivation,
+          theme_name=theme, 
+          due=due,
+          valence=valence,
+          instrumentary=instrumentary,
+          expectancy=expectancy)
+
       #theme_data = Theme(theme_name = theme)
       
       #データベースに保存する
@@ -67,20 +84,72 @@ def motivation_button():
       motivation_datas = db.session.query(Motivation.percentage).all()
       list_data = []
       for motivation_data in motivation_datas:
-        print(motivation_data)
         list_data.append(motivation_data[0])
       
       motivation_data = json.dumps(list(list_data))
       
-      theme_dates = db.session.query(Motivation.theme_name).all()
+      theme_datas = db.session.query(Motivation.theme_name).all()
       list_data2 = []
-      for theme_data in theme_dates:
+      for theme_data in theme_datas:
         list_data2.append(theme_data[0])
 
       theme_data = json.dumps(list(list_data2))      
-      
-      return render_template('motivation.html', motivations = motivations, motivation_data = motivation_data, theme_data = theme_data)
 
+      date_datas = db.session.query(Motivation.due).all()
+      list_data3 = []
+      for date_data in date_datas:
+          list_data3.append(date_data[0])
+
+      # date, datetimeの変換関数
+      def json_serial(obj):
+          if isinstance(obj,date):
+              return obj.isoformat()
+
+      date_data = json.dumps(list(list_data3),default=json_serial)
+
+      V_datas = db.session.query(Motivation.valence).all()
+      list_data4 = []
+      for V_data in V_datas:
+          list_data4.append(V_data[0])
+      V_data = list(list_data4)
+
+      I_datas = db.session.query(Motivation.instrumentary).all()
+      list_data5 = []
+      for I_data in I_datas:
+          list_data5.append(I_data[0])
+      I_data = list(list_data5)
+
+      E_datas = db.session.query(Motivation.expectancy).all()
+      list_data6 = []
+      for E_data in E_datas:
+          list_data6.append(E_data[0])
+      E_data = list(list_data6)
+
+      array_add = list(map(lambda x,y:x*y,V_data,I_data))
+      F_value = list(map(lambda x,y:x*y,array_add,E_data))
+      F_value = (np.array(F_value)*100).tolist()
+      F_val = json.dumps(F_value)
+
+ 
+      return render_template('motivation.html',
+       motivations = motivations,
+       motivation_data = motivation_data, 
+       theme_data = theme_data, 
+       date_data=date_data, 
+       F_value = F_val)
+
+@app.route('/theme_delete/<int:id>')
+def theme_delete(id):
+    d_theme = db.session.query(Motivation).get(id)
+    if d_theme is None:
+        response = jsonify({'status': 'Not Found'})
+        response.status_code = 404
+        return response
+
+    db.session.delete(d_theme)
+    db.session.commit()
+
+    return redirect(url_for('motivation_button'))
 
 @app.route('/')
 def portfolio():

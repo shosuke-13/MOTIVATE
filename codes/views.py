@@ -32,6 +32,10 @@ class Motivation(db.Model):
     #user_id = db.Column(db.Integer,db.ForeignKey('user.id'), nullable=False)
     #theme_id = db.Column(db.Integer,db.ForeignKey('theme.id'), nullable=False)
     percentage = db.Column(db.Integer)
+    due = db.Column(db.Date)
+    valence = db.Column(db.Integer)
+    instrumentary = db.Column(db.Integer)
+    expectancy = db.Column(db.Integer)
 
 class Portforio(db.Model):
     __tablename__ = 'portforio'
