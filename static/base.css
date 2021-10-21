@@ -339,13 +339,14 @@ h1 {
 table{
     border-collapse: collapse;
     width: 95%;
+    font-family: 'Quicksand', sans-serif;
 }
 
 td, th {
-    border: 1px solid black;   
+    border: 1px solid rgb(133, 129, 129);   
     text-align: center;  
     padding: 1px;    
     }
     th {
-    background-color: #e6d9ee; 
+    background-color: #f2e7f8; 
     }
