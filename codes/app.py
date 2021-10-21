@@ -1,13 +1,10 @@
-from flask import Flask,render_template,redirect,request,url_for,session
-from numpy.ma.core import multiply
+from flask import Flask,render_template,redirect,request,url_for,session,jsonify
 from database import db
 from views import User,Motivation,Portforio,Post,Feedback
 from datetime import timedelta
 import json
 from datetime import date,datetime
-from operator import mul
 import numpy as np
-from flask import jsonify
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///motivation.db'
