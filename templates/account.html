@@ -30,11 +30,11 @@
             function Display_JS(no){
              
                 if(no == "no1"){
-                    document.getElementById("JS").innerHTML = '<div><h1 class="h1_box">My Profile</h1><br><div class="profile_box"><p>自己紹介がここに入ります。</p></div><a href="" class="edit_button">変更</a></div>';
+                    document.getElementById("JS").innerHTML = '<div><h1 class="h1_profile h1_box">My Profile</h1><br><div class="profile_box"><p>自己紹介がここに入ります。</p></div><a href="" class="edit_button">変更</a></div>';
                 }else if(no == "no2"){
-                    document.getElementById("JS").innerHTML = '<div><h1 class="h1_box">e-mail</h1><br><div class="profile_box"><p>メールアドレスの変更はこちらです。</p></div><a href="" class="edit_button">変更</a></div>';
+                    document.getElementById("JS").innerHTML = '<div><h1 class="h1_profile h1_box">e-mail</h1><br><div class="profile_box"><p>メールアドレスの変更はこちらです。</p></div><a href="" class="edit_button">変更</a></div>';
                 }else if(no == "no3"){
-                    document.getElementById("JS").innerHTML = '<div><h1 class="h1_box">Password</h1><br><div class="profile_box"><p>パスワードの変更はこちらです。</p></div><a href="" class="edit_button">変更</a></div>';
+                    document.getElementById("JS").innerHTML = '<div><h1 class="h1_profile h1_box">Password</h1><br><div class="profile_box"><p>パスワードの変更はこちらです。</p></div><a href="" class="edit_button">変更</a></div>';
                 }
             }
              
@@ -42,24 +42,25 @@
 
         <main class="main">
             <div class="lnavi">
-                <p>Local Menu</p>
+                <p class="h1_motivation">Local Menu</p>
+                <h3 class="h3_profile">______________________</h3>
                 <p><a href="javascript:;" onclick="Display_JS('no1')">My Profile</a></p>
                 <p><a href="javascript:;" onclick="Display_JS('no2')">My e-mail address</a></p>
                 <p><a href="javascript:;" onclick="Display_JS('no3')">My Password</a></p>
             </div>
 
             <div class="content" id="JS">
-                <h1 class="h1_box">My Profile</h1><br>
+                <h1 class="h1_profile h1_box">My Profile</h1><br>
                 <div class="profile_box">
                     <p>こんにちは、私は2021年5月からハーバード大学のオンライン講義である「CS50」を受講しました。その中でも、htmlやcss、JavaScriptなどフロントエンドの技術に興味が湧きました。今はフロントエンドの技術を勉強し、チーム開発を行っています。</p>
                 </div>
 
-                <h1 class="h1_box">e-mail</h1><br>
+                <h1 class="h1_profile h1_box">e-mail</h1><br>
                 <div class="profile_box">
                     <p>example@gmail.com</p>
                 </div><br>
 
-                <h1 class="h1_box">Password</h1><br>
+                <h1 class="h1_profile h1_box">Password</h1><br>
                 <div class="profile_box">
                     <p>●●●●●●●●●●</p>
                 </div>

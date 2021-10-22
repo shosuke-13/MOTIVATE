@@ -166,12 +166,22 @@ nav {
 
 
 /* h1 */
-h1 {
+.h1_profile {
     color: #666;
     font-size: 1.5rem;
     text-decoration: none;
     font-family: 'Quicksand', sans-serif;
     margin-left: 100px;
+}
+
+.h1_motivation {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: #666;
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
 }
 
 .h1_box {
@@ -207,6 +217,24 @@ h1 {
     padding: 0;
 }
 
+
+/* h3 */
+.h3_motivation {
+    color: #666;
+    font-size: 1.3rem;
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+}
+
+.h3_profile {
+    color: #666;
+    font-size: 1.3rem;
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    margin-bottom: 40px;
+}
 
 
 /* local navigation */
@@ -345,8 +373,17 @@ table{
 td, th {
     border: 1px solid rgb(133, 129, 129);   
     text-align: center;  
-    padding: 1px;    
-    }
+    padding: 1px;
+    font-family: 'Quicksand', sans-serif;
+}
     th {
-    background-color: #f2e7f8; 
-    }
+    background-color: #c7beba; 
+}
+
+
+/* p */
+.p_motivation {
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    margin-bottom: 50px;
+}

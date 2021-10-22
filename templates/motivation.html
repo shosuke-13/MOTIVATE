@@ -28,15 +28,15 @@
 
         <main class="main">
             <div class="lnavi">
-              <h1>Motivation Form</h1>
-                <h3>______________________</h3>
+              <h1 class="h1_motivation">Form</h1>
+                <h3 class="h3_motivation">______________________</h3>
                 <form action="/motivation" method = "POST">
-                  <br><h3>Motivation</h3><input type="number" name = "motivation" placeholder= "motivation: %"></br>
-                  <br><h3>Theme</h3><input type="text" name = "theme" placeholder = "Your theme name"></br>
-                  <br><h3>Date</h3><input type="date" name="due"></br>
-                  <br><h3>Valence</h3><input type="number" step="0.1" name="valence"></br>
-                  <br><h3>Instrumentary</h3><input type="number" step="0.1" name="instrumentary"></br>
-                  <br><h3>Expectancy</h3><input type="number" step="0.1" name="expectancy"></br>
+                  <br><h3 class="h3_motivation">Motivation</h3><input type="number" name = "motivation" placeholder= "motivation: %"></br>
+                  <br><h3 class="h3_motivation">Theme</h3><input type="text" name = "theme" placeholder = "Your theme name"></br>
+                  <br><h3 class="h3_motivation">Date</h3><input type="date" name="due"></br>
+                  <br><h3 class="h3_motivation">Valence</h3><input type="number" step="0.1" name="valence"></br>
+                  <br><h3 class="h3_motivation">Instrumentary</h3><input type="number" step="0.1" name="instrumentary"></br>
+                  <br><h3 class="h3_motivation">Expectancy</h3><input type="number" step="0.1" name="expectancy"></br>
                   <br><input type="submit" name = "submit" placeholder = "submit"></br>
                 </form>
             </div>
@@ -44,10 +44,11 @@
             <div class="content">
                 
               
-                <h1>Your Theme And Motivation(%)</h1>
+                <h1 class="h1_motivation">Your Theme And Motivation(%)</h1>
+                <h3 class="h3_motivation">______________________</h3>
                 <br></br>
                 <table>
-                <h3>
+                <h3 class="h3_motivation">
                   <tr>
                     <th>Theme Name</th>
                     <th>motivation(%)</th>
@@ -67,7 +68,8 @@
             </div>
 
             <div class="content">
-                <h1>Display Your Motivation</h1>
+                <h1 class="h1_motivation">Display Your Motivation</h1>
+                <h3 class="h3_motivation">______________________</h3>
                 
                 <canvas id="myChart"></canvas>
                 <script>
@@ -132,7 +134,7 @@
                   document.getElementById('myChart'),
                   config
                 );</script>
-                <p>Graph1:Theme and Motivation</p>
+                <p class="p_motivation">Graph1:Theme and Motivation</p>
 
                
                <canvas id="myChart2"></canvas>
@@ -154,7 +156,7 @@
                        }
                       });
                </script>
-               <p>Graph2:Motivation percentage and F-value</p>
+               <p class="p_motivation">Graph2:Motivation percentage and F-value</p>
 
                <canvas id="myChart3"></canvas>
                <script>
@@ -175,7 +177,7 @@
                       });
                   
               </script>
-              <p>Graph3:Total Motivation percentage and F-Value</p>
+              <p class="p_motivation">Graph3:Total Motivation percentage and F-Value</p>
             </div>
         </main>
 
