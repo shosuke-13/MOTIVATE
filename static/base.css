@@ -132,6 +132,18 @@ nav {
     border: solid 1px #113743;
 }
 
+.index_content {
+    flex: 1;
+    background: none;
+    padding-left: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: solid 1px #113743;
+    text-align: center;
+}
+
 .flexContent {
     flex: 1;
     list-style: none;
@@ -261,6 +273,7 @@ nav {
     position: relative;
 }
 
+
 /* flex item*/
 .flexItem {
     width: calc(100% / 3 - 20px);
@@ -385,4 +398,11 @@ td, th {
     font-family: 'Quicksand', sans-serif;
     text-align: center;
     margin-bottom: 50px;
+}
+
+
+/* image */
+.img {
+    width: 400px;
+    filter: invert(65%) sepia(0%) saturate(11%) hue-rotate(143deg) brightness(101%) contrast(93%);
 }
