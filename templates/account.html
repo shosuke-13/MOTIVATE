@@ -55,8 +55,8 @@
                 <div class="profile_box">
                     
                     {% for profile in profiles %}
-                    <p><form action="/add_profile/{{profile.id}}">
-                        <input type ="text" name="add_profile">Add</input></form></p>
+                    <p>{{profile.profile_text}}</p>
+                    <br></br>
                     <p><a href="/edit_profile/{{profile.id}}">Edit</a></p>
                     {% endfor %}
 
@@ -64,12 +64,16 @@
 
                 <br><h1 class="h1_profile h1_box">e-mail</h1><br>
                 <div class="profile_box">
-                    <p>example@gmail.com</p>
+                    <p>{% for profile in profiles %}
+                        <p>{{profile.e_mail}}</p>
+                        {% endfor %}</p>
                 </div><br>
 
                 <h1 class="h1_profile h1_box">Password</h1><br>
                 <div class="profile_box">
-                    <p>●●●●●●●●●●</p>
+                    <p>{% for profile in profiles %}
+                        <p>{{profile.password}}</p>
+                        {% endfor %}</p>
                 </div>
             </div>
         </main>

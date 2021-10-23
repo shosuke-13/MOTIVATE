@@ -6,7 +6,7 @@ class User(db.Model):
     username = db.Column(db.String(30),nullable=True)
     e_mail = db.Column(db.String(100),nullable=False)
     password = db.Column(db.String(30),nullable=False)
-    profile_text = db.Column(db.String(500))
+    profile_text = db.Column(db.String(500),default="profile_text")
 
     #motivation = db.relationship('Motivation', backref='user')
     #theme = db.relationship('Theme', backref='user')
