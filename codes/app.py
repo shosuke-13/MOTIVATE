@@ -195,7 +195,7 @@ def portfolio_button():
     return render_template('portfolio.html',portfolios=portfolios)
         
 
-#投稿
+#投
 @app.route('/post',methods=['GET', 'POST'])
 def post():
     posts= db.session.query(Post).order_by(desc(Post.id)).all()

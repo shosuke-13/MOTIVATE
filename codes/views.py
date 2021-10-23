@@ -36,7 +36,7 @@ class Motivation(db.Model):
     valence = db.Column(db.Integer)
     instrumentary = db.Column(db.Integer)
     expectancy = db.Column(db.Integer)
-
+#画像テーブル追加
 class Portforio(db.Model):
     __tablename__ = 'portforio'
     id = db.Column(db.Integer, primary_key=True)
