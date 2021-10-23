@@ -25,10 +25,10 @@
 
         <main class="home_title">
             <div class="homeContent">
-                <h3 class="h3_motivation">Post</h3>
+                <h1 class="h1_home">Post</h1>
             </div>
             <div class="homeContent">
-                <h3 class="h3_motivation">Portfolio</h3>
+                <h1 class="h1_home">Portfolio</h1>
             </div>
         </main>
 
@@ -45,6 +45,17 @@
                         <p class="card-text">これが私の投稿です。今、プログラミングを勉強していて、cs50の講義を受けています。</p>
                     </div>
                 </div>
+
+
+                {% for post in posts %}
+                    <div class="card homeflexItem">
+                        <img class="bd-placeholder-img card-img-top" src="{{post.post_img}}" width="100%" height="250">
+                        <div class="card-body">
+                            <p class="card-text">{{post.post_text}}</p>
+                        </div>   
+                    </div> 
+                {% endfor %}
+
             </div>
 
 
@@ -61,6 +72,17 @@
                         <p class="card-text">これが私のポートフォリオです。webアプリケーションを作ってみました。</p>
                     </div>
                 </div>
+
+
+                {% for portfolio in portfolios %}  
+                    <div class="card homeflexItem">
+                        <img class="bd-placeholder-img card-img-top" src="{{portfolio.portforio_img}}" width="100%" height="250">
+                        <div class="card-body">
+                            <p class="card-text">{{portfolio.portforio_text}}</p>
+                        </div>   
+                    </div> 
+                {% endfor %}
+
             </div>
         </main>
 
