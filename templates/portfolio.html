@@ -28,27 +28,35 @@
         <main class="main">
             <div class="lnavi">
 
-                <p>New Portfolio</p>
-                <form action="/portfolio_edit" method="POST" enctype="multipart/form-data">
-                    <div class="form-item">
-                        <label for="portfolio_title"></label>
-                        <input type="text" name="portfolio_title" required="required" placeholder="タイトル"></input>
-                    </div>
-    
-                    <div class="form-item">
-                        <label for="portfolio_text"></label>
-                        <input type="text" name="portfolio_text" required="required" placeholder="内容"></input>
-                    </div>
-                    <div class="form-item">
-                        <label for="img"></label>
-                        <input type="file" name="portfolio_img" required="required" placeholder="画像"></input>
-                    </div>
-                    <div class="button-panel">
-                        <input type="submit" class="button" title="Login" value="投稿"></input>
-                    </div>
-
                 <h3 class="h1_motivation">New Portfolio</h3>
                 <h3 class="h3_profile">______________________</h3>
+
+                <form action="/portfolio_edit" method="POST" enctype="multipart/form-data">
+                    <h3 class="h3_motivation">Title</h3>
+                    <div class="form">
+                        <label class="form_label" for="portfolio_title">
+                        <input type="text" name="portfolio_title" required="required" placeholder="Your portfolio title">
+                        </label>
+                    </div><br>
+        
+                    <h3 class="h3_motivation">Description</h3>
+                    <div class="form">
+                        <label class="form_label" for="portfolio_text">
+                        <input type="text" name="portfolio_text" required="required" placeholder="description">
+                        </label>
+                    </div><br>
+
+                    <h3 class="h3_motivation">Image</h3>
+                    <div class="form">
+                        <label class="form_label" for="img">
+                        <input type="file" name="portfolio_img" required="required" placeholder="画像">
+                        </label>
+                    </div><br>
+
+                    <div class="button-panel edit_button">
+                        <input type="submit" class="button" title="Login" value="投稿">
+                    </div>
+                </form>
 
             </div>
 
@@ -66,62 +74,13 @@
                 </div>
 
 
-                <div class="card flexItem">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                        <title>Placeholder</title>
-                        <rect fill="#868e96" width="100%" height="100%"/>
-                        <text fill="#dee2e6" dy=".3em" x="50%" y="50%">画像</text>
-                    </svg>
-    
-                    <div class="card-body">
-                        <p class="card-text">これが私のポートフォリオです。webアプリケーションを作ってみました。</p>
-                    </div>
-                </div>
-
-                <div class="card flexItem">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                        <title>Placeholder</title>
-                        <rect fill="#868e96" width="100%" height="100%"/>
-                        <text fill="#dee2e6" dy=".3em" x="50%" y="50%">画像</text>
-                    </svg>
-    
-                    <div class="card-body">
-                        <p class="card-text">これが私のポートフォリオです。webアプリケーションを作ってみました。</p>
-                    </div>
-                </div>
-
-                <div class="card flexItem">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                        <title>Placeholder</title>
-                        <rect fill="#868e96" width="100%" height="100%"/>
-                        <text fill="#dee2e6" dy=".3em" x="50%" y="50%">画像</text>
-                    </svg>
-    
-                    <div class="card-body">
-                        <p class="card-text">これが私のポートフォリオです。webアプリケーションを作ってみました。</p>
-                    </div>
-                </div>
-
-                <div class="card flexItem">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                        <title>Placeholder</title>
-                        <rect fill="#868e96" width="100%" height="100%"/>
-                        <text fill="#dee2e6" dy=".3em" x="50%" y="50%">画像</text>
-                    </svg>
-    
-                    <div class="card-body">
-                        <p class="card-text">れが私のポートフォリオです。webアプリケーションを作ってみました。</p>
-                    </div>
-                </div>
                 {% for portfolio in portfolios %}
-                    
-                        <div class="card flexItem">
-                            <img class="bd-placeholder-img card-img-top" src="{{portfolio.portforio_img}}" width="100%" height="250">
-                            <div class="card-body">
-                                <p class="card-text">{{portfolio.portforio_text}}</p>
-                            </div>   
-                        </div> 
-                            
+                    <div class="card flexItem">
+                        <img class="bd-placeholder-img card-img-top" src="{{portfolio.portforio_img}}" width="100%" height="250">
+                        <div class="card-body">
+                            <p class="card-text">{{portfolio.portforio_text}}</p>
+                        </div>   
+                    </div>                             
                 {% endfor %}
 
             </div>

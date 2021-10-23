@@ -23,6 +23,15 @@
         {% block body %}
         {{ super () }}
 
+        <main class="home_title">
+            <div class="homeContent">
+                <h1 class="h1_home">Post</h1>
+            </div>
+            <div class="homeContent">
+                <h1 class="h1_home">Portfolio</h1>
+            </div>
+        </main>
+
         <main class="main">
             <div class="home_post flexContent">
                 <div class="card homeFlexItem">
@@ -38,75 +47,13 @@
                 </div>
 
 
-                <div class="card homeFlexItem">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="350" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                        <title>Placeholder</title>
-                        <rect fill="#868e96" width="100%" height="100%"/>
-                        <text fill="#dee2e6" dy=".3em" x="50%" y="50%"　text>画像</text>
-                    </svg>
-    
-                    <div class="card-body">
-                        <p class="card-text">これが私の投稿です。今、プログラミングを勉強していて、cs50の講義を受けています。</p>
-                    </div>
-                </div>
-
-                <div class="card homeFlexItem">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="350" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                        <title>Placeholder</title>
-                        <rect fill="#868e96" width="100%" height="100%"/>
-                        <text fill="#dee2e6" dy=".3em" x="50%" y="50%"　text>画像</text>
-                    </svg>
-    
-                    <div class="card-body">
-                        <p class="card-text">これが私の投稿です。今、プログラミングを勉強していて、cs50の講義を受けています。</p>
-                    </div>
-                </div>
-
-                <div class="card homeFlexItem">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="350" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                        <title>Placeholder</title>
-                        <rect fill="#868e96" width="100%" height="100%"/>
-                        <text fill="#dee2e6" dy=".3em" x="50%" y="50%"　text>画像</text>
-                    </svg>
-    
-                    <div class="card-body">
-                        <p class="card-text">これが私の投稿です。今、プログラミングを勉強していて、cs50の講義を受けています。</p>
-                    </div>
-                </div>
-
-                <div class="card homeFlexItem">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="350" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                        <title>Placeholder</title>
-                        <rect fill="#868e96" width="100%" height="100%"/>
-                        <text fill="#dee2e6" dy=".3em" x="50%" y="50%"　text>画像</text>
-                    </svg>
-    
-                    <div class="card-body">
-                        <p class="card-text">これが私の投稿です。今、プログラミングを勉強していて、cs50の講義を受けています。</p>
-                    </div>
-                </div>
-
-                <div class="card homeFlexItem">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="350" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                        <title>Placeholder</title>
-                        <rect fill="#868e96" width="100%" height="100%"/>
-                        <text fill="#dee2e6" dy=".3em" x="50%" y="50%"　text>画像</text>
-                    </svg>
-    
-                    <div class="card-body">
-                        <p class="card-text">これが私の投稿です。今、プログラミングを勉強していて、cs50の講義を受けています。</p>
-                    </div>
-                </div>
-
                 {% for post in posts %}
-                    
-                        <div class="card homeflexItem">
-                            <img class="bd-placeholder-img card-img-top" src="{{post.post_img}}" width="100%" height="250">
-                            <div class="card-body">
-                                <p class="card-text">{{post.post_text}}</p>
-                            </div>   
-                        </div> 
-                            
+                    <div class="card homeflexItem">
+                        <img class="bd-placeholder-img card-img-top" src="{{post.post_img}}" width="100%" height="250">
+                        <div class="card-body">
+                            <p class="card-text">{{post.post_text}}</p>
+                        </div>   
+                    </div> 
                 {% endfor %}
 
             </div>
@@ -127,52 +74,14 @@
                 </div>
 
 
-                <div class="card homeFlexItem">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="350" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                        <title>Placeholder</title>
-                        <rect fill="#868e96" width="100%" height="100%"/>
-                        <text fill="#dee2e6" dy=".3em" x="50%" y="50%">画像</text>
-                    </svg>
-    
-                    <div class="card-body">
-                        <p class="card-text">これが私のポートフォリオです。webアプリケーションを作ってみました。</p>
-                    </div>
-                </div>
-
-                <div class="card homeFlexItem">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="350" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                        <title>Placeholder</title>
-                        <rect fill="#868e96" width="100%" height="100%"/>
-                        <text fill="#dee2e6" dy=".3em" x="50%" y="50%">画像</text>
-                    </svg>
-    
-                    <div class="card-body">
-                        <p class="card-text">これが私のポートフォリオです。webアプリケーションを作ってみました。</p>
-                    </div>
-                </div>
-
-                <div class="card homeFlexItem">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="350" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap">
-                        <title>Placeholder</title>
-                        <rect fill="#868e96" width="100%" height="100%"/>
-                        <text fill="#dee2e6" dy=".3em" x="50%" y="50%">画像</text>
-                    </svg>
-    
-                    <div class="card-body">
-                        <p class="card-text">これが私のポートフォリオです。webアプリケーションを作ってみました。</p>
-                    </div>
-                </div>
-
-                {% for portfolio in portfolios %}
-                    
-                <div class="card homeflexItem">
-                    <img class="bd-placeholder-img card-img-top" src="{{portfolio.portforio_img}}" width="100%" height="250">
-                    <div class="card-body">
-                        <p class="card-text">{{portfolio.portforio_text}}</p>
-                    </div>   
-                </div> 
+                {% for portfolio in portfolios %}  
+                    <div class="card homeflexItem">
+                        <img class="bd-placeholder-img card-img-top" src="{{portfolio.portforio_img}}" width="100%" height="250">
+                        <div class="card-body">
+                            <p class="card-text">{{portfolio.portforio_text}}</p>
+                        </div>   
+                    </div> 
                 {% endfor %}
-
 
             </div>
         </main>

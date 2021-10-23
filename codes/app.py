@@ -22,7 +22,7 @@ db.init_app(app)
 app.permanent_session_lifetime = timedelta(minutes=50)
 
 with app.app_context():
-    db.drop_all()
+    #db.drop_all()
     db.create_all()
 
 def allwed_file(filename):
