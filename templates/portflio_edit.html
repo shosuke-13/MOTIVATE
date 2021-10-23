@@ -11,7 +11,37 @@
 
     <body>
         <main>
+        {% extends "base.html" %}
+        {% block body %}
+        {{ super () }}
+        <main>
+            <form action="/portfolio_edit" method="POST" enctype="multipart/form-data">
+                <div class="form-item">
+                    <label for="portfolio_title"></label>
+                    <input type="text" name="portfolio_title" required="required" placeholder="タイトル"></input>
+                </div>
+
+                <div class="form-item">
+                    <label for="portfolio_text"></label>
+                    <input type="text" name="portfolio_text" required="required" placeholder="内容"></input>
+                </div>
+                <div class="form-item">
+                    <label for="img"></label>
+                    <input type="file" name="portfolio_img" required="required" placeholder="画像"></input>
+                </div>
+                <div class="button-panel">
+                    <input type="submit" class="button" title="Login" value="投稿"></input>
+                </div>
+
                 
+            </form>
+        </main>
+        {% endblock %}
+        
+        {% block footer %}
+        {{ super () }}
+        {% endblock %}
+    </body>
         </main>
     </body>
 </html>

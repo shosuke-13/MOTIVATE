@@ -28,6 +28,24 @@
         <main class="main">
             <div class="lnavi">
                 <p>New Post</p>
+                <form action="/post_edit" method="POST" enctype="multipart/form-data">
+                    <div class="form-item">
+                        <label for="post_title"></label>
+                        <input type="text" name="post_title" required="required" placeholder="タイトル"></input>
+                    </div>
+    
+                    <div class="form-item">
+                        <label for="post_text"></label>
+                        <input type="text" name="post_text" required="required" placeholder="内容"></input>
+                    </div>
+                    <div class="form-item">
+                        <label for="img"></label>
+                        <input type="file" name="post_img" required="required" placeholder="画像"></input>
+                    </div>
+                    <div class="button-panel">
+                        <input type="submit" class="button" title="Login" value="投稿"></input>
+                    </div>                    
+                </form>
             </div>
 
             <div class="flexContent">
@@ -78,6 +96,16 @@
                         <p class="card-text">これが私の投稿です。今、プログラミングを勉強していて、cs50の講義を受けています。</p>
                     </div>
                 </div>
+                {% for post in posts %}
+                    
+                        <div class="card flexItem">
+                            <img class="bd-placeholder-img card-img-top" src="{{post.post_img}}" width="100%" height="250">
+                            <div class="card-body">
+                                <p class="card-text">{{post.post_text}}</p>
+                            </div>   
+                        </div> 
+                            
+                {% endfor %}
             </div>
         </main>
         

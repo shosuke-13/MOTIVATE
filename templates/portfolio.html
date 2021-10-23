@@ -28,6 +28,23 @@
         <main class="main">
             <div class="lnavi">
                 <p>New Portfolio</p>
+                <form action="/portfolio_edit" method="POST" enctype="multipart/form-data">
+                    <div class="form-item">
+                        <label for="portfolio_title"></label>
+                        <input type="text" name="portfolio_title" required="required" placeholder="タイトル"></input>
+                    </div>
+    
+                    <div class="form-item">
+                        <label for="portfolio_text"></label>
+                        <input type="text" name="portfolio_text" required="required" placeholder="内容"></input>
+                    </div>
+                    <div class="form-item">
+                        <label for="img"></label>
+                        <input type="file" name="portfolio_img" required="required" placeholder="画像"></input>
+                    </div>
+                    <div class="button-panel">
+                        <input type="submit" class="button" title="Login" value="投稿"></input>
+                    </div>
             </div>
 
             <div class="flexContent">
@@ -90,6 +107,16 @@
                         <p class="card-text">これが私のポートフォリオです。webアプリケーションを作ってみました。</p>
                     </div>
                 </div>
+                {% for portfolio in portfolios %}
+                    
+                        <div class="card flexItem">
+                            <img class="bd-placeholder-img card-img-top" src="{{portfolio.portforio_img}}" width="100%" height="250">
+                            <div class="card-body">
+                                <p class="card-text">{{portfolio.portforio_text}}</p>
+                            </div>   
+                        </div> 
+                            
+                {% endfor %}
             </div>
         </main>
         
