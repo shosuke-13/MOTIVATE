@@ -22,17 +22,21 @@
             </div>
         </div>
 
-        <header class="header"><a href="{{ url_for('index_button') }}">Motivate.</a></header>
+        <header class="header"><a href="{{ url_for('index2_button') }}">Motivate.</a></header>
 
         <nav class="gnavi">
             <div class="gnavi_inner">
                 <ul>
-                    <li><a href="{{ url_for('already_signup_button') }}"><span>Login</span></a></li>
-                    <li><a href="{{ url_for('not_signup_button') }}"><span>Signup</span></a></li>
+                    <li><a href="{{ url_for('home_button') }}"><span>Home</span></a></li>
+                    <li><a href="{{ url_for('account_button') }}"><span>Profile</span></a></li>
+                    <li><a href="{{ url_for('motivation_button') }}"><span>Motivation</span></a></li>
+                    <li><a href="{{ url_for('portfolio_button') }}"><span>Portfolio</span></a></li>
+                    <li><a href="{{ url_for('post_button') }}"><span>Post</span></a></li>
+                    <li><a href="{{ url_for('logout_button') }}"><span>LogOut</span></a></li>
                 </ul>
             </div>
         </nav>
-
+        
         <main class="main">
             <div class="index_content">
                 <img src="static/images/Motivate.jpg" alt="Motivate LOGO" class="img">

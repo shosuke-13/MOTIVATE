@@ -28,16 +28,38 @@ def home_button():
 
     return render_template('home.html')
 
+
 @app.route('/')
 def account():
     return render_template('account.html')
 
 @app.route('/account_button', methods=['GET', 'POST'])
 def account_button():
+    profile_data = db.session.query(User.id).all()
     if request.method == 'POST':
         return redirect(url_for('account'))
 
-    return render_template('account.html')
+    return render_template('account.html', profiles = profile_data) 
+
+@app.route('/add_profile/<int:id>')
+def add_profile(id):
+    profile = request.form.get('add_profile')
+
+    profile_data = User(profile)
+    db.session.add(profile_data)
+    return redirect(url_for('account'))
+
+@app.route('/edit_profile/<int:id>', methods=["POST", "GET"])
+def edit_profile(id):
+    profile = db.session.query(User).get(id)
+    if request.method == "GET":
+        return render_template("edit_profile.html", profile = profile)
+    
+    else:
+        profile.profile_text = request.form.get("profile_text")
+        db.session.commit()
+      
+        redirect(url_for(account))
 
 
 @app.route('/')
@@ -148,6 +170,7 @@ def theme_delete(id):
 
     return redirect(url_for('motivation_button'))
 
+
 @app.route('/')
 def portfolio():
     return render_template('portfolio.html')
@@ -172,11 +195,14 @@ def post_button():
     return render_template('post.html')
 
 
+@app.route('/')
+def logOut():
+    return render_template('login.html')
 
 @app.route('/logout_button', methods=['GET', 'POST'])
 def logout_button():
     if request.method == 'POST':
-        return redirect(url_for('logout'))
+        return redirect(url_for('logOut'))
 
     return render_template('login.html')
 
@@ -187,8 +213,11 @@ def not_signup():
 
 @app.route('/not_signup_button', methods=['GET', 'POST'])
 def not_signup_button():
-    
+    if request.method == 'POST':
+        return redirect(url_for('not_signup'))
+
     return render_template('signup.html')
+
 
 @app.route('/')
 def already_signup():
@@ -202,7 +231,30 @@ def already_signup_button():
     return render_template('login.html')
 
 
-    
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/index_button', methods=['GET', 'POST'])
+def index_button():
+    if request.method == 'POST':
+        return redirect(url_for('index'))
+
+    return render_template('index.html')
+
+
+@app.route('/')
+def index2():
+    return render_template('index2.html')
+
+@app.route('/index2_button', methods=['GET', 'POST'])
+def index2_button():
+    if request.method == 'POST':
+        return redirect(url_for('index2'))
+
+    return render_template('index2.html')
+
+
 
 @app.route("/register", methods = ["GET", "POST"])
 def register():

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='base.css') }}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400">
+        <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=fontawesome">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+        <link rel="stylesheet" href="http://weloveiconfonts.com/api/?family=fontawesome">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{url_for('static', filename='bootstrap_css/bootstrap.min.css')}}">
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="{{url_for('static', filename='bootstrap_js/bootstrap.min.js')}}"></script>
+    <title>Document</title>
+</head>
+<body>
+    {% extends "base.html" %}
+        {% block body %}
+        {{ super () }}
+
+
+        <form action="/edit_profile/{{profile.id}}" method="POST">
+            <h1>Your Profile</h1>：<br>
+            <textarea name="profile_text">変更内容を記入</textarea><br>
+            <input type="submit"><input type="reset">
+            </form>
+
+        {% endblock %}
+
+        {% block footer %}
+        {{ super () }}
+        {% endblock %}
+    
+</body>
+</html>
