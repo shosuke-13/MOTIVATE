@@ -41,6 +41,7 @@ def home_button():
     posts= db.session.query(Post).order_by(desc(Post.id)).all()
     return render_template('home.html',portfolios=portfolios,posts=posts)
 
+
 @app.route('/')
 def account():
     return render_template('account.html')
@@ -161,6 +162,8 @@ def theme_delete(id):
 
     return redirect(url_for('motivation_button'))
 
+
+
 #ポートフォリオ
 @app.route('/portfolio',methods=['GET', 'POST'])
 def portfolio():
@@ -227,6 +230,18 @@ def post_button():
 
 
 
+@app.route('/')
+def logOut():
+    return render_template('login.html')
+
+
+
+@app.route('/logOut_button', methods=['GET', 'POST'])
+def logOut_button():
+    if request.method == 'POST':
+        return redirect(url_for('logOut'))
+
+    return render_template('login.html')
 
 
 @app.route('/')
@@ -235,8 +250,11 @@ def not_signup():
 
 @app.route('/not_signup_button', methods=['GET', 'POST'])
 def not_signup_button():
-    
+    if request.method == 'POST':
+        return redirect(url_for('not_signup'))
+
     return render_template('signup.html')
+
 
 @app.route('/')
 def already_signup():
@@ -250,7 +268,30 @@ def already_signup_button():
     return render_template('login.html')
 
 
-    
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/index_button', methods=['GET', 'POST'])
+def index_button():
+    if request.method == 'POST':
+        return redirect(url_for('index'))
+
+    return render_template('index.html')
+
+
+@app.route('/')
+def index2():
+    return render_template('index2.html')
+
+@app.route('/index2_button', methods=['GET', 'POST'])
+def index2_button():
+    if request.method == 'POST':
+        return redirect(url_for('index2'))
+
+    return render_template('index2.html')
+
+
 
 @app.route("/register", methods = ["GET", "POST"])
 def register():
@@ -291,15 +332,7 @@ def logout_button():
         return redirect(url_for('logout'))
     return render_template('login.html')
 
-@app.route('/index_button', methods=['GET', 'POST'])
-def index_button():
-    if request.method == 'POST':
-        return redirect(url_for('index'))
-    return render_template('index.html')
-@app.route('/index', methods=['GET', 'POST'])
-def index():
-    if request.method == 'POST':
-        return render_template('index.html')
+
 
 
 
