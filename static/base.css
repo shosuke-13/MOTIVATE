@@ -116,6 +116,7 @@ nav {
 .main {
     min-height: 100vh;
     display: flex;
+    flex-wrap: wrap;
     margin-top: 10px;
 }
 
@@ -157,6 +158,8 @@ nav {
     border: solid 1px #113743;
 }
 
+
+/* home */
 .home_post {
     flex: 1;
     background: none;
@@ -175,6 +178,19 @@ nav {
     align-content: flex-start;
 }
 
+.home_title {
+    text-align: center;
+    display: flex;
+}
+
+.homeContent {
+    flex: 1;
+    list-style: none;
+	box-sizing: border-box;
+    background: none;
+    text-align: center;
+    margin-top: 20px;
+}
 
 
 /* h1 */
