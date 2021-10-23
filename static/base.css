@@ -116,6 +116,7 @@ nav {
 .main {
     min-height: 100vh;
     display: flex;
+    flex-wrap: wrap;
     margin-top: 10px;
 }
 
@@ -157,6 +158,8 @@ nav {
     border: solid 1px #113743;
 }
 
+
+/* home */
 .home_post {
     flex: 1;
     background: none;
@@ -175,6 +178,19 @@ nav {
     align-content: flex-start;
 }
 
+.home_title {
+    text-align: center;
+    display: flex;
+}
+
+.homeContent {
+    flex: 1;
+    list-style: none;
+	box-sizing: border-box;
+    background: none;
+    text-align: center;
+    margin-top: 20px;
+}
 
 
 /* h1 */
@@ -189,6 +205,14 @@ nav {
 .h1_motivation {
     margin-top: 20px;
     margin-bottom: 15px;
+    color: #666;
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+}
+
+.h1_home {
     color: #666;
     font-size: 1.5rem;
     text-decoration: none;
@@ -335,35 +359,35 @@ nav {
     text-decoration: none;
     color: #444;
     transition: .4s;
-  }
+}
 
-  .edit_button:hover {
+.edit_button:hover {
     color:#c5001a;
-  }
+}
 
-  .edit_button:before, .edit_button:after {
+.edit_button:before, .edit_button:after {
     position: absolute;
     top: 0;
     content:'';
     width: 8px;
     height: 100%;
     display: inline-block;
-  }
+}
 
-  .edit_button:before {
+.edit_button:before {
     border-left: solid 1px #c5001a;
     border-top: solid 1px #c5001a;
     border-bottom: solid 1px #c5001a;
     left: 0;
-  }
+}
 
-  .edit_button:after {
+.edit_button:after {
     content: '';
     border-top: solid 1px #c5001a;
     border-right: solid 1px #c5001a;
     border-bottom: solid 1px #c5001a;
     right: 0;
-  }
+}
 
 
 /* card */
@@ -377,6 +401,8 @@ nav {
     border: solid 1px #c5001a;
 }
 
+
+/* table */
 table{
     border-collapse: collapse;
     width: 95%;
@@ -384,7 +410,11 @@ table{
 }
 
 td, th {
+<<<<<<< HEAD
     border: 1px solid rgb(133, 129, 129);   
+=======
+    border: 1px solid #eee;   
+>>>>>>> 9dd90e3f4e90d37f2611d5faaad99bf60f84fe2f
     text-align: center;  
     padding: 1px;
     font-family: 'Quicksand', sans-serif;
@@ -407,3 +437,68 @@ td, th {
     width: 400px;
     filter: invert(65%) sepia(0%) saturate(11%) hue-rotate(143deg) brightness(101%) contrast(93%);
 }
+<<<<<<< HEAD
+=======
+
+
+/* form */
+.form {
+    margin: 0 auto;
+	width: 60%;
+    margin-bottom: 30px;
+}
+
+.form input[type='text'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 2px;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: black;
+	border: 1px solid #113743;
+    background: #eee;
+}
+
+.form_label input[type='text']:focus {
+	border: 1px solid #c5001a;
+	outline: none;
+	box-shadow: 0 0 5px 1px rgba(218,60,65, .5);
+}
+
+.form input[type='number'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 2px;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: black;
+	border: 1px solid #113743;
+    background: #eee;
+}
+
+.form_label input[type='number']:focus {
+	border: 1px solid #c5001a;
+	outline: none;
+	box-shadow: 0 0 5px 1px rgba(218,60,65, .5);
+}
+
+.form input[type='date'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 2px;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: black;
+	border: 1px solid #113743;
+    background: #eee;
+}
+
+.form_label input[type='date']:focus {
+	border: 1px solid #c5001a;
+	outline: none;
+	box-shadow: 0 0 5px 1px rgba(218,60,65, .5);
+}
+>>>>>>> 9dd90e3f4e90d37f2611d5faaad99bf60f84fe2f

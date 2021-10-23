@@ -28,9 +28,11 @@
 
         <main class="main">
             <div class="lnavi">
-              <h1 class="h1_motivation">Form</h1>
-                <h3 class="h3_motivation">______________________</h3>
+                <h1 class="h1_motivation">Form</h1>
+                <h3 class="h3_profile">______________________</h3>
+
                 <form action="/motivation" method = "POST">
+<<<<<<< HEAD
                   <br><h3 class="h3_motivation">Motivation</h3><input type="number" name = "motivation" placeholder= "        : %" max="100" min="-100"></br>
                   <br><h3 class="h3_motivation">Theme</h3><input type="text" name = "theme" placeholder = "Your theme name"></br>
                   <br><h3 class="h3_motivation">Date</h3><input type="date" name="due"></br>
@@ -38,7 +40,55 @@
                   <br><h3 class="h3_motivation">Instrumentary</h3><input type="number" step="0.1" name="instrumentary" max="1" min="-1"></br>
                   <br><h3 class="h3_motivation">Expectancy</h3><input type="number" step="0.1" name="expectancy" max="1" min="-1"></br>
                   <br><input type="submit" name = "submit" placeholder = "submit"></br>
+=======
+                    <h3 class="h3_motivation">Motivation</h3>
+                    <div class="form">
+                        <label class="form_label">
+                        <input type="number" name = "motivation" placeholder= "motivation: %">
+                        </label>
+                    </div></br>
+
+                    <h3 class="h3_motivation">Theme</h3>
+                    <div class="form">
+                        <label class="form_label">
+                        <input type="text" name = "theme" placeholder = "Your theme name">
+                        </label>
+                    </div></br>
+
+                    <h3 class="h3_motivation">Date</h3>
+                    <div class="form">
+                        <label class="form_label">
+                        <input type="date" name="due">
+                        </label>
+                    </div></br>
+
+                    <h3 class="h3_motivation">Valence</h3>
+                    <div class="form">
+                        <label class="form_label">
+                        <input type="number" step="0.1" name="valence">
+                        </label>
+                    </div></br>
+
+                    <h3 class="h3_motivation">Instrumentary</h3>
+                    <div class="form">
+                        <label class="form_label">
+                        <input type="number" step="0.1" name="instrumentary">
+                        </label>
+                    </div></br>
+
+                    <h3 class="h3_motivation">Expectancy</h3>
+                    <div class="form">
+                        <label class="form_label">
+                        <input type="number" step="0.1" name="expectancy">
+                        </label>
+                    </div></br>
+
+                    <div class="button-panel edit_button">
+                        <input type="submit" name = "submit" placeholder = "submit">
+                    </div>
+>>>>>>> 9dd90e3f4e90d37f2611d5faaad99bf60f84fe2f
                 </form>
+
             </div>
 
             <div class="content">
