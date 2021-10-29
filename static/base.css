@@ -395,9 +395,14 @@ nav {
 table{
     border-collapse: collapse;
     width: 95%;
+    font-family: 'Quicksand', sans-serif;
 }
 td, th {
+<<<<<<< HEAD
+    border: 1px solid rgb(133, 129, 129);   
+=======
     border: 1px solid #eee;   
+>>>>>>> 9dd90e3f4e90d37f2611d5faaad99bf60f84fe2f
     text-align: center;  
     padding: 1px;
     font-family: 'Quicksand', sans-serif;
@@ -422,6 +427,8 @@ td, th {
     width: 400px;
     filter: invert(65%) sepia(0%) saturate(11%) hue-rotate(143deg) brightness(101%) contrast(93%);
 }
+<<<<<<< HEAD
+=======
 
 
 
@@ -479,3 +486,4 @@ td, th {
 	outline: none;
 	box-shadow: 0 0 5px 1px rgba(218,60,65, .5);
 }
+>>>>>>> 9dd90e3f4e90d37f2611d5faaad99bf60f84fe2f

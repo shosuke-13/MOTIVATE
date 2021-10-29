@@ -48,10 +48,22 @@ def account():
 
 @app.route('/account_button', methods=['GET', 'POST'])
 def account_button():
+    profile_data = db.session.query(User).all()
     if request.method == 'POST':
         return redirect(url_for('account'))
 
-    return render_template('account.html')
+    return render_template('account.html', profiles = profile_data) 
+
+@app.route('/edit_profile/<int:id>', methods=["POST", "GET"])
+def edit_profile(id):
+    profile = db.session.query(User).filter(User.id == id).all()
+    if request.method == "GET":
+        return render_template("edit_profile.html", profile = profile)
+    
+    else:
+        profile.profile_text = request.form.get("profile_text")
+        db.session.commit()
+        return render_template('account.html')
 
 
 @app.route('/')
