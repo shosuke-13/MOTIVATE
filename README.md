@@ -1,23 +1,19 @@
 # MOTIVATE.
 
-モチベーションを可視化して、管理するアプリを作りました。
-気軽に自分の進捗状況やポートフォリオを投稿することができます。
-みんなの投稿やポートフォリオを共有して、客観的に自分の状況を把握し、モチベーションを管理することがこのアプリのコンセプトです。
-（CS50を受講後、初めてのチーム開発で制作したアプリです。）
+### Motivation Management App
+
+I created an app to visualize and manage motivation. You can post your progress and portfolio, and share them with others to objectively manage your own motivation. (This app was created as a team project after taking CS50.)
+
+## How to Use
+
+1. Sign up to create an account, then log in.
+2. On the profile screen, you can edit your self-introduction, and change your registered email address and password.
+3. On the motivation screen, you can register multiple motivational states and visualize them on a graph. You can also compare your own perceived state with your calculated true motivation state.
+4. On the posting and portfolio screens, you can edit your posts and portfolio with images. You can also see a list of your past posts and portfolios.
+5. On the home screen, you can see the latest posts and portfolios from everyone. Your edited posts and portfolios will also appear on the home screen.
+6. Click on the logo of "MOTIVATE." at any time to see an explanation if you forget how to use the app.
+7. Log out to log out and return to the login screen.
 
 
-## 使い方
-
-1. サインインでアカウントの登録をして、ログイン画面でログインします。
-2. プロフィール画面では、自己紹介の編集と登録したメールアドレスとパスワードの変更ができます。
-3. モチベーション画面では、自分のモチベーション状態をいくつも登録でき、グラフによって可視化できます。また、自分が思っている状態と計算によって導かれた自分の本当のモチベーションの状態を比較することもできます。
-4. 投稿画面とポートフォリオ画面では、自分の投稿とポートフォリオを画像付きで編集することができます。また、自分の過去の投稿やポートフォリオを一覧で見ることも可能です。
-5. ホーム画面では、最新のみんなの投稿とポートフォリオを見ることができます。自分で編集した投稿やポートフォリオはホーム画面に上がっていきます。
-6. ログアウトを押すと、ログアウトし、ログイン画面に戻ります。
-7. 使い方がわからなくなったら、「MOTIVATE.」のロゴを押すといつでも説明を見ることができます。
-
-
-## 文責
-
-* チーム開発メンバー　（翔介,　Taihei,　Masa,　木村洸貴）
+## Member
 
