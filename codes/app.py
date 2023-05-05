@@ -1,14 +1,14 @@
 import os
-from flask import Flask,render_template,redirect,request,url_for,session,jsonify,send_from_directory
-from database import db
-from views import User,Motivation,Portforio,Post,Feedback
-from datetime import timedelta
 import json
-from datetime import date,datetime
 import numpy as np
+from flask import Flask,render_template,redirect,request,url_for,session,jsonify,send_from_directory
+from views import User,Motivation,Portforio,Post,Feedback
+from datetime import timedelta,date,datetime
 from werkzeug.utils import secure_filename
 from sqlalchemy import desc
+from flask_sqlalchemy import SQLAlchemy
 
+db = SQLAlchemy()
 
 UPLOAD_FOLDER = './uploads'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'gif'])
@@ -25,13 +25,17 @@ with app.app_context():
     #db.drop_all()
     db.create_all()
 
+
 def allwed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
 @app.route('/')
 def home():
     portfolios= db.session.query(Portforio).order_by(desc(Portforio.id)).all()
     posts= db.session.query(Post).order_by(desc(Post.id)).all()
     return render_template('home.html',portfolios=portfolios,posts=posts)
+
 
 @app.route('/home_button', methods=['GET', 'POST'])
 def home_button():
@@ -46,6 +50,7 @@ def home_button():
 def account():
     return render_template('account.html')
 
+
 @app.route('/account_button', methods=['GET', 'POST'])
 def account_button():
     profile_data = db.session.query(User).all()
@@ -53,6 +58,7 @@ def account_button():
         return redirect(url_for('account'))
 
     return render_template('account.html', profiles = profile_data) 
+
 
 @app.route('/edit_profile/<int:id>', methods=["POST", "GET"])
 def edit_profile(id):
@@ -69,6 +75,7 @@ def edit_profile(id):
 @app.route('/')
 def motivation():
     return render_template('motivation.html')
+
 
 @app.route('/motivation', methods=['GET', 'POST'])
 def motivation_button():
@@ -161,6 +168,7 @@ def motivation_button():
        date_data=date_data, 
        F_value = F_val)
 
+
 @app.route('/theme_delete/<int:id>')
 def theme_delete(id):
     d_theme = db.session.query(Motivation).get(id)
@@ -175,12 +183,12 @@ def theme_delete(id):
     return redirect(url_for('motivation_button'))
 
 
-
 #ポートフォリオ
 @app.route('/portfolio',methods=['GET', 'POST'])
 def portfolio():
     portfolios= db.session.query(Portforio).order_by(desc(Portforio.id)).all()
     return render_template('portfolio.html',portfolios=portfolios)
+
 
 @app.route("/portfolio_edit", methods = ["GET", "POST"])
 def portfolio_edit():
@@ -198,9 +206,12 @@ def portfolio_edit():
         return render_template("home.html")
     else:
         return render_template("portfolio.html")
+    
+
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
 
 @app.route('/portfolio_button', methods=['GET', 'POST'])
 def portfolio_button():
@@ -210,11 +221,11 @@ def portfolio_button():
     return render_template('portfolio.html',portfolios=portfolios)
         
 
-#投
 @app.route('/post',methods=['GET', 'POST'])
 def post():
     posts= db.session.query(Post).order_by(desc(Post.id)).all()
     return render_template('post.html',posts=posts)
+
 
 @app.route("/post_edit", methods = ["GET", "POST"])
 def post_edit():
@@ -233,6 +244,7 @@ def post_edit():
     else:
         return render_template("post.html")
 
+
 @app.route('/post_button', methods=['GET', 'POST'])
 def post_button():
     if request.method == 'POST':        
@@ -241,11 +253,9 @@ def post_button():
     return render_template('post.html',posts=posts)
 
 
-
 @app.route('/')
 def logOut():
     return render_template('login.html')
-
 
 
 @app.route('/logOut_button', methods=['GET', 'POST'])
@@ -260,6 +270,7 @@ def logOut_button():
 def not_signup():
     return render_template('signup.html')
 
+
 @app.route('/not_signup_button', methods=['GET', 'POST'])
 def not_signup_button():
     if request.method == 'POST':
@@ -271,6 +282,7 @@ def not_signup_button():
 @app.route('/')
 def already_signup():
     return render_template('login.html')
+
 
 @app.route('/already_signup_button', methods=['GET', 'POST'])
 def already_signup_button():
@@ -284,6 +296,7 @@ def already_signup_button():
 def index():
     return render_template('index.html')
 
+
 @app.route('/index_button', methods=['GET', 'POST'])
 def index_button():
     if request.method == 'POST':
@@ -296,13 +309,13 @@ def index_button():
 def index2():
     return render_template('index2.html')
 
+
 @app.route('/index2_button', methods=['GET', 'POST'])
 def index2_button():
     if request.method == 'POST':
         return redirect(url_for('index2'))
 
     return render_template('index2.html')
-
 
 
 @app.route("/register", methods = ["GET", "POST"])
@@ -333,19 +346,18 @@ def login():
     session["user_id"] = user_id
     return render_template("home.html")
 
+
 @app.route("/logout",methods = ["GET","POST"])
 def logout():
   session.pop("user_id", None)
   return redirect("/")
+
 
 @app.route('/logout_button', methods=['GET', 'POST'])
 def logout_button():
     if request.method == 'POST':
         return redirect(url_for('logout'))
     return render_template('login.html')
-
-
-
 
 
 if __name__=="__main__":

@@ -1,0 +1,4 @@
+sqlalchemy
+flask
+werkzeug
+flask_sqlalchemy
