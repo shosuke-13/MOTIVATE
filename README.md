@@ -14,7 +14,3 @@ I created an app to visualize and manage motivation. You can post your progress 
 5. On the home screen, you can see the latest posts and portfolios from everyone. Your edited posts and portfolios will also appear on the home screen.
 6. Click on the logo of "MOTIVATE." at any time to see an explanation if you forget how to use the app.
 7. Log out to log out and return to the login screen.
-
-
-## Member
-
