@@ -1,7 +1,7 @@
 # MOTIVATE.
 
 ### Motivation Management App
-<img width="400" src="https://github.com/shosuke-13/MOTIVATE/blob/master/static/images/Motivate.PNG">
+<img width="400" src=https://github.com/shosuke-13/MOTIVATE/blob/master/static/images/Motivate.PNG>
 
 I created an app to visualize and manage motivation. You can post your progress and portfolio, and share them with others to objectively manage your own motivation. (This app was created as a team project after taking CS50.)
 
