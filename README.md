@@ -1,7 +1,6 @@
-# MOTIVATE.
+# MOTIVATE
 
-### Motivation Management App
-![MOTIVATE icon](./static/images/Motivate.PNG)
+## Motivation Management App
 
 I created an app to visualize and manage motivation. You can post your progress and portfolio, and share them with others to objectively manage your own motivation. (This app was created as a team project after taking CS50.)
 
