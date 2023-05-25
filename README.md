@@ -9,5 +9,5 @@ We created an app to visualize and manage motivation. You can post your progress
 - ###### TAIHEI-O
 - ###### imperial-masa
 
-*__Note__:
+<br>*__Note__:
 This application was created by the students as part of CS50: Introduction to Computer Science.*
