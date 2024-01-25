@@ -22,6 +22,7 @@ db.init_app(app)
 app.permanent_session_lifetime = timedelta(minutes=50)
 
 with app.app_context():
+    #db.drop_all()
     db.create_all()
 
 
@@ -96,6 +97,8 @@ def motivation_button():
           valence=valence,
           instrumentary=instrumentary,
           expectancy=expectancy)
+
+      #theme_data = Theme(theme_name = theme)
       
       #データベースに保存する
       db.session.add(motivation_data)
@@ -109,22 +112,21 @@ def motivation_button():
       motivations = db.session.query(Motivation).all()
     
       motivation_datas = db.session.query(Motivation.percentage).all()
-      theme_datas = db.session.query(Motivation.theme_name).all()
-      date_datas = db.session.query(Motivation.due).all()
-
       list_data = []
-      list_data2 = []
-      list_data3 = []
-
       for motivation_data in motivation_datas:
         list_data.append(motivation_data[0])
       
       motivation_data = json.dumps(list(list_data))
-      theme_data = json.dumps(list(list_data2))  
       
+      theme_datas = db.session.query(Motivation.theme_name).all()
+      list_data2 = []
       for theme_data in theme_datas:
         list_data2.append(theme_data[0])
 
+      theme_data = json.dumps(list(list_data2))      
+
+      date_datas = db.session.query(Motivation.due).all()
+      list_data3 = []
       for date_data in date_datas:
           list_data3.append(date_data[0])
 
@@ -136,24 +138,21 @@ def motivation_button():
       date_data = json.dumps(list(list_data3),default=json_serial)
 
       V_datas = db.session.query(Motivation.valence).all()
-      I_datas = db.session.query(Motivation.instrumentary).all()
-      E_datas = db.session.query(Motivation.expectancy).all()
-
-      list_data6 = []
       list_data4 = []
-      list_data5 = []
-
       for V_data in V_datas:
           list_data4.append(V_data[0])
+      V_data = list(list_data4)
 
+      I_datas = db.session.query(Motivation.instrumentary).all()
+      list_data5 = []
       for I_data in I_datas:
           list_data5.append(I_data[0])
+      I_data = list(list_data5)
 
+      E_datas = db.session.query(Motivation.expectancy).all()
+      list_data6 = []
       for E_data in E_datas:
           list_data6.append(E_data[0])
-
-      V_data = list(list_data4)
-      I_data = list(list_data5)
       E_data = list(list_data6)
 
       array_add = list(map(lambda x,y:x*y,V_data,I_data))
@@ -161,6 +160,7 @@ def motivation_button():
       F_value = (np.array(F_value)*100).tolist()
       F_val = json.dumps(F_value)
 
+ 
       return render_template('motivation.html',
        motivations = motivations,
        motivation_data = motivation_data, 
@@ -195,12 +195,12 @@ def portfolio_edit():
     if request.method == "POST":
         portfolio_title = request.form.get("portfolio_title")
         portfolio_text = request.form.get("portfolio_text")
-
         file = request.files['portfolio_img']
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         img_url = './uploads/' + filename
-
+        #theme = request.form.get("theme")
+        #theme_id = db.session.query(Theme.id).filter(Theme.theme_name == theme,Theme.user_id == session["user_id"])
         db.session.add(Portforio(portforio_title=portfolio_title,portforio_text=portfolio_text,portforio_img=img_url,user_id=session["user_id"]))
         db.session.commit()
         return render_template("home.html")
@@ -232,12 +232,12 @@ def post_edit():
     if request.method == "POST":
         post_title = request.form.get("post_title")
         post_text = request.form.get("post_text")
-
         file = request.files['post_img']
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         img_url = './uploads/' + filename
-
+        #theme = request.form.get("theme")
+        #theme_id = db.session.query(Theme.id).filter(Theme.theme_name == theme,Theme.user_id == session["user_id"])
         db.session.add(Post(post_title=post_title,post_text=post_text,post_img=img_url,user_id=session["user_id"]))
         db.session.commit()
         return render_template("home.html")
@@ -330,9 +330,9 @@ def register():
   else:
     return render_template("login.html")
 
-
 @app.route("/login",methods = ["GET","POST"])
 def login():
+
   session.clear()
 
   if request.method == "POST":
@@ -362,3 +362,6 @@ def logout_button():
 
 if __name__=="__main__":
   app.run(debug=True)
+  
+
+
