@@ -1,3 +1,6 @@
+json 
+numpy
+werkzeug
 sqlalchemy
 flask
 werkzeug
